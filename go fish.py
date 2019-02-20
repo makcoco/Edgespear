@@ -5,7 +5,7 @@ Created on Wed Feb 20 13:20:42 2019
 @author: cocoMAK
 """
 import random
-#fdasfjalsfjalfjl;aksfjas
+
 
 cards = ['1','1','1','1','2','2','2','2','3','3','3','3','4','4','4','4','5','5','5','5','6',
          '6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','10','10','10','10','11',
@@ -15,6 +15,7 @@ class player(object):
     card = []
     def __init__(self,card):
         self.card = card
+        print(card)
     def go_fish():
         pass
     def ask():
