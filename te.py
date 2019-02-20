@@ -10,7 +10,7 @@ class player(object):
 		pass
 	def ask():
 		pass
-
+#LlLlLLALALALALALALAL
 def fapai():
 
 	player = []
