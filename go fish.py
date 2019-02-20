@@ -7,7 +7,7 @@ Created on Wed Feb 20 13:20:42 2019
 import random
 
 
-cards = ['1','1','1','1','2','2','2','2','3','3','3','3','4','4','4','4','5','5','5','5','6',
+cards = ['1', '1', '1','1','2','2','2','2','3','3','3','3','4','4','4','4','5','5','5','5','6',
          '6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','10','10','10','10','11',
          '11','11','11','12','12','12','12','13','13','13','13']
 
@@ -15,6 +15,7 @@ class player(object):
     card = []
     def __init__(self,card):
         self.card = card
+        print(card)
     def go_fish():
         pass
     def ask():
@@ -34,8 +35,4 @@ player1 = player(fapai())
 player2 = player(fapai())
 player3 = player(fapai())
 player4 = player(fapai())
-print(player1.card)
-print(player2.card)
-print(player3.card)
-print(player4.card)
 print(cards)
