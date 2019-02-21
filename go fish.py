@@ -18,14 +18,14 @@ class player(object):
 
 class Ask(object):
     def enter(self):
-        print(dedent"Choose a player you want to ask for card.")
+        print(" Choose a player you want to ask for card.")
         action = "> "
 
         if action != "player1" or "player2" or "player3" or "player4":
             print("You can't choose someone who didn't exit.")
             return 'ask'
 
-        if action == "player1" or "player2" or "player3" or "player4":
+        elif action == "player1" or "player2" or "player3" or "player4":
             print(f"You choose {action}.",action)
             return 'choose_card'
 
@@ -53,10 +53,9 @@ class Action(object):
 
     def __init__(self, start_scene):
         self.start_scene = start_scene
-        print(start_scene)
 
     def next_scene(self, scene_name):
-        val = Action.scenes.get(scene_name)
+        val = Action.move.get(scene_name)
         return val
 
 
@@ -79,6 +78,7 @@ class Engine(object):
         # be sure to print out the last scene
         current_scene.enter()
 
+
 def fapai():
     i = 0 
     player = []
@@ -89,9 +89,10 @@ def fapai():
         i = i + 1
     return player
 
+
 player1 = player()
 player1.card = fapai()
 
-a_map = Map('ask')
+a_map = Action('ask')
 a_game = Engine(a_map)
 a_game.play()
