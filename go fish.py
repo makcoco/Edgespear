@@ -33,7 +33,7 @@ class player(object):
 
     def go_fish(self):
         print("Go fish.")
-        return player.pick_card
+
 
     def pick_card(self):
         pass
@@ -72,7 +72,7 @@ def fapai():
     i = 0 
     player = []
     while i != 5:
-        a =   random.randint(0,len(cards))
+        a = random.randint(0,len(cards))
         card = cards.pop(a-1)
         player.append(card)
         i = i + 1
