@@ -18,7 +18,6 @@ class player(object):
         self.card = None
         self.i = i
 
-
     def ask(self):
         print(" Choose a player you want to ask for card.")
         action = input("> ")
@@ -33,7 +32,11 @@ class player(object):
 
     def go_fish(self):
         print("Go fish.")
-
+        d = random.randint(0, len(cards))
+        fish = cards.pop(d-1)
+        print(f"You got {fish}.")
+        who[self.i].card.append(fish)
+        print(len(cards))
 
     def pick_card(self):
         pass
@@ -51,7 +54,6 @@ class player(object):
             action = input("> ")
             return who[j].give_card(action,self.i)
 
-
     def give_card(self,b,c):
         for each in who[self.i].card:
             if each == b:
@@ -63,9 +65,6 @@ class player(object):
 
             elif each != b:
                 return who[self.i].go_fish()
-
-
-
 
 
 def fapai():
@@ -86,7 +85,7 @@ who = {1: player1, 2: player2,  # 3:player3,4:player4
                }
 
 player1.card = fapai()
-player2.card = ['5']
+player2.card = fapai()
 player1.ask()
 #print(player1.card)
 #print(who[2].card)
