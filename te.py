@@ -6,17 +6,18 @@ Created on Wed Feb 20 13:20:42 2019
 """
 import random
 
-cards = ['1', '1', '1', '1', '2', '2', '2', '2', '3', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '6',
-         '6', '6', '6', '7', '7', '7', '7', '8', '8', '8', '8', '9', '9', '9', '9', '10', '10', '10', '10', '11',
-         '11', '11', '11', '12', '12', '12', '12', '13', '13', '13', '13']
-
-
+# cards = ['1', '1', '1', '1', '2', '2', '2', '2', '3', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '6',
+#          '6', '6', '6', '7', '7', '7', '7', '8', '8', '8', '8', '9', '9', '9', '9', '10', '10', '10', '10', '11',
+#          '11', '11', '11', '12', '12', '12', '12', '13', '13', '13', '13']
+cards = ['1', '1','2', '2','3', '3','4', '4','5', '5','6', '6',]
+score = [0,0]
 class player(object):
     def __init__(self, i):
         self.card = None
         self.i = i
 
     def ask(self):
+        print(f"你是玩家{self.i}")
         print(" Choose a player you want to ask for card.")
         action = input("> ")
 
@@ -29,12 +30,15 @@ class player(object):
             return who[self.i].ask()
 
     def go_fish(self):
-        print("Go fish.")
-        d = random.randint(0, len(cards))
-        fish = cards.pop(d - 1)
-        print(f"You got {fish}.")
-        who[self.i].card.append(fish)
-        print(len(cards))
+        if len(cards)!=0:
+            print("Go fish.")
+            d = random.randint(0, len(cards))
+            fish = cards.pop(d - 1)
+            print(f"You got {fish}.")
+            who[self.i].card.append(fish)
+            print('还剩',len(cards),'张牌')
+        else:
+            print("pass")
 
     def pick_card(self):
         pass
@@ -75,7 +79,7 @@ class player(object):
             print(player1.card,player2.card)
             return who[c].ask()
         else:
-            return who[self.i].go_fish()
+            return who[c].go_fish()
 
 
 def fapai():
@@ -88,7 +92,13 @@ def fapai():
         i = i + 1
     return player
 
-
+def start():
+    i=1
+    while ((len(cards)==0 )and (len(who[1].card)==0)and(len(who[2].card)==0))==0:
+        who[i].ask()
+        i = i % 2
+        i = i + 1
+    print("finish")
 player1 = player(1)
 player2 = player(2)
 # player3 = player(3)
@@ -100,6 +110,7 @@ player1.card = fapai()
 player2.card = fapai()
 print(player1.card)
 print(player2.card)
-player1.ask()
+start()
+#player1.ask()
 print(player1.card)
 # print(who[2].card)
