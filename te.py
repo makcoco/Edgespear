@@ -69,7 +69,7 @@ class player(object):
                # who[c].card.extend(all)
         if who[self.i].card == None:
             who[self.i].card = fapai()
-        if all != None:
+        if len(all)!=0:
             who[c].card.extend(all)
             print(f"给了{all}")
             print(player1.card,player2.card)
