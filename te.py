@@ -18,6 +18,14 @@ class player(object):
 
     def ask(self):
         print(f"你是玩家{self.i}")
+        for c in who[self.i].card:
+            if who[self.i].card.count(c)==2:
+                for x in who[self.i].card:
+                    if x == c :
+                        who[self.i].card.remove(x)
+                score[self.i-1]+=1
+        print("现在的比分是",score[0],":",score[1])
+        print("现在手上有",self.card)
         print(" Choose a player you want to ask for card.")
         action = input("> ")
 
@@ -96,8 +104,10 @@ def start():
     i=1
     while ((len(cards)==0 )and (len(who[1].card)==0)and(len(who[2].card)==0))==0:
         who[i].ask()
+
         i = i % 2
         i = i + 1
+
     print("finish")
 player1 = player(1)
 player2 = player(2)
