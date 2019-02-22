@@ -61,6 +61,8 @@ class player(object):
                 all.append(each)
                 who[self.i].card.remove(each)
                 who[c].card.extend(all)
+                if who[self.i].card == None:
+                    who[self.i].card = fapai()
                 return who[c].ask()
 
             elif each != b:
