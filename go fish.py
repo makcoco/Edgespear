@@ -17,7 +17,6 @@ class player(object):
     def __init__(self,i):
         self.card = None
         self.i = i
-        j = i
 
 
     def ask(self):
@@ -33,15 +32,25 @@ class player(object):
             return player.ask(self)
 
     def go_fish(self):
-        pass
-    def choose_card(self,a):
-        print(self.i)
-        print(f"You have {who[self.i].card}.Which one do you want from {a}.")
-        action = input("> ")
-        print(who[self.i].card)
+        print("Go fish.")
+        return player.pick_card
+    def choose_card(self, a):
 
-    def give_card(self):
-        pass
+        if a == 'player1':
+            j = 1
+            print(f"You have {who[self.i].card}.Which one do you want from {a}.")
+            action = input("> ")
+            return who[j].give_card(action)
+        elif a == 'player2':
+            j = 2
+            print(f"You have {who[self.i].card}.Which one do you want from {a}.")
+            action = input("> ")
+            return who[j].give_card(action)
+
+
+    def give_card(self,b):
+        if b == who[self.i].card:
+            who[self.i].card.remove(b)
 
 
 
@@ -63,5 +72,7 @@ who = {1: player1, 2: player2,  # 3:player3,4:player4
                }
 
 player1.card = fapai()
-
+player2.card = fapai()
 player1.ask()
+#print(player1.card)
+#print(who[2].card)
