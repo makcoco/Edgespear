@@ -34,23 +34,37 @@ class player(object):
     def go_fish(self):
         print("Go fish.")
         return player.pick_card
+
+    def pick_card(self):
+        pass
+
     def choose_card(self, a):
 
         if a == 'player1':
             j = 1
             print(f"You have {who[self.i].card}.Which one do you want from {a}.")
             action = input("> ")
-            return who[j].give_card(action)
+            return who[j].give_card(action,self.i)
         elif a == 'player2':
             j = 2
             print(f"You have {who[self.i].card}.Which one do you want from {a}.")
             action = input("> ")
-            return who[j].give_card(action)
+            return who[j].give_card(action,self.i)
 
 
-    def give_card(self,b):
-        if b == who[self.i].card:
-            who[self.i].card.remove(b)
+    def give_card(self,b,c):
+        for each in who[self.i].card:
+            if each == b:
+                all = []
+                all.append(each)
+                who[self.i].card.remove(each)
+                who[c].card.extend(all)
+                return who[c].ask()
+
+            elif each != b:
+                return who[self.i].go_fish()
+
+
 
 
 
@@ -72,7 +86,7 @@ who = {1: player1, 2: player2,  # 3:player3,4:player4
                }
 
 player1.card = fapai()
-player2.card = fapai()
+player2.card = ['5']
 player1.ask()
 #print(player1.card)
 #print(who[2].card)
